@@ -3,6 +3,8 @@ document.querySelector('Button').addEventListener('click', getDrink)
 
 function getDrink(){
     let drink = document.querySelector('input').value
+    let fixWord = str=> str.toLowerCase().split('').filter(x=> x !== ' ').join('')
+    let noSpaces = strDrink => strDrink.toLowerCase().split('').filter(x => x!== ' ').join('')
 
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(res => res.json()) // parse response as JSON
@@ -15,5 +17,5 @@ function getDrink(){
     .catch(err => {
         console.log(`error ${err}`)
     });
-}
+} 
 
